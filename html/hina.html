@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- OGPのためにprefix属性を付与されたheadタグ -->
+<!-- トップページのみprefix属性中の"article"を"website"に置き換える -->
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+
+    <!-- 重要なmetaタグ -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- ページタイトルとdescription -->
+    <title>page title</title>
+    <meta name="description" content="description, description, description.">
+
+    <!-- OGP関連 -->
+    <meta property="og:url" content="https://hogehoge.com/"> <!-- このページのURL -->
+    <meta property="og:type" content="article"> <!-- トップページは"website"、それ以外は"article" -->
+    <meta property="og:title" content="hoge"> <!-- このページのタイトル、サイト名は含まない -->
+    <meta property="og:description" content="OGP description, OGP description, OGP description."> <!-- このページの説明 -->
+    <meta property="og:site_name" content="SUGAR BOMBER"> <!-- サイト名 -->
+    <meta property="og:image" content="https://hogehoge.com/image/ogp/hoge.png"> <!-- SNSで表示する画像URL -->
+    <meta property="og:locale" content="ja-JP"> <!-- このページの言語 -->
+    <meta property="fb:app_id" content="hogehoge"> <!-- facebookのID -->
+    <meta name="twitter:card" content="summary"> <!-- Twitter上の表示タイプ -->
+    <meta name="twitter:site" content="@hogehoge"> <!-- TwitterのID -->
+
+    <!-- favicon -->
+    <link rel="icon" href="./image/common/favicon.png">
+    <link rel="apple-touch-icon" href="./image/common/apple-touch-icon-180x180.png" sizes="180x180">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/destyle.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+<div id="page">
+
+    <header id="pageHead">
+    </header>
+    <main id="pageBody">
+    </main>
+    <footer id="pageFoot">
+    </footer>
+
+</div>
+</body>
+</html>
