@@ -1,3 +1,17 @@
+<?php
+session_start([
+    'gc_maxlifetime' => 60 * 60 * 1, // セッションファイルの存在が保証されるのは最終アクセスから1時間まで
+    'cookie_lifetime' => 60 * 60 * 24 // セッションIDに対応するcookieの有効期限は最初のアクセスから24時間
+]);
+if (!isset($_SESSION['loginCode']) || !isset($_SESSION['loginName']) || $_SESSION['loginName']==='') {
+    $loginCode = 0;
+    $loginName = 'ゲスト';
+} else {
+    $loginCode = $_SESSION['loginCode'];
+    $loginName = $_SESSION['loginName'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -45,15 +59,39 @@
             <button type="submit">検索</button>
         </form>
         <div>
-            メニュー
+            <button type="button">
+                <?=$loginName?>様
+            </button>
+            <div>
+                <?php if ($loginCode===1): ?>
+                    <ul>
+                        <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                        <li><a href="../product/product_list.php">商品管理</a></li>
+                        <li><a href="../order/download.php">注文情報ダウンロード</a></li>
+                        <li><a href="../staff/signout.php">ログアウト</a></li>
+                    </ul>
+                <?php elseif ($loginCode===2): ?>
+                    <ul>
+                        <li><a href="../member/disp.php">会員情報確認</a></li>
+                        <li><a href="../member/edit.php">会員情報変更</a></li>
+                        <li><a href="../member/signout.php">ログアウト</a></li>
+                    </ul>
+                <?php else: ?>
+                    <button type="button" onclick="location.href='../member/signin.php'">ログイン</button>
+                    <button type="button" onclick="location.href='../member/signup.php'">新規会員登録</button>
+                    <a href="../staff/signin.php">スタッフログイン</a>
+                <?php endif; ?>
+            </div>
         </div>
     </header>
+
     <main id="pageBody">
     </main>
+
     <footer id="pageFoot">
         <p id="copyright">
             <small>
-                &copy; 2021 Shop Lab.
+                &copy; 2021 Shop Lab. Corp.
             </small>
         </p>
     </footer>
