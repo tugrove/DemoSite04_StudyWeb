@@ -54,36 +54,46 @@ if (!isset($_SESSION['loginCode']) || !isset($_SESSION['loginName']) || $_SESSIO
 <div id="page">
 
     <header id="pageHead">
-        <a href="../index.php"><img src="../image/common/siteLogo.png" alt="Shop! Lab." title="Shop! Lab. HOME"></a>
-        <form action="../index.php" method="get">
-            <input type="text" name="serchWord" id="serchWord">
-            <button type="submit">検索</button>
-        </form>
-        <div>
-            <button type="button">
-                <?=$loginName?>様
-            </button>
-            <div>
-                <?php if ($loginCode===1): ?>
-                    <ul>
-                        <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
-                        <li><a href="../product/product_list.php">商品管理</a></li>
-                        <li><a href="../order/download.php">注文情報ダウンロード</a></li>
-                        <li><a href="../staff/signout.php">ログアウト</a></li>
-                    </ul>
-                <?php elseif ($loginCode===2): ?>
-                    <ul>
-                        <li><a href="../member/disp.php">会員情報確認</a></li>
-                        <li><a href="../member/edit.php">会員情報変更</a></li>
-                        <li><a href="../member/signout.php">ログアウト</a></li>
-                    </ul>
-                <?php else: ?>
-                    <button type="button" onclick="location.href='../member/signin.php'">ログイン</button>
-                    <button type="button" onclick="location.href='../member/signup.php'">新規会員登録</button>
-                    <a href="../staff/signin.php">スタッフログイン</a>
-                <?php endif; ?>
+        <div id="pageHeadGrid" class="contentsMaxWidth">
+            <div class="siteLogo">
+                <a href="../index.php"><img src="../image/common/siteLogo.png" alt="Shop Lab." title="Shop Lab. HOME" class="img-siteLogo"></a>
             </div>
-        </div>
+            <button id="sideMenuButton"><i class="fas fa-bars"></i></button>
+            <div id="memberMenu" class="open">
+                <button type="button" id="memberMenuButton" class="centering">
+                    <span class="bold"><?=$loginName?></span>様
+                    <i class="fas fa-caret-down"></i>
+                </button>
+                <div class="accordionMenu">
+                    <?php if ($loginCode===1): ?>
+                        <ul>
+                            <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                            <li><a href="../product/product_list.php">商品管理</a></li>
+                            <li><a href="../order/download.php">注文情報ダウンロード</a></li>
+                            <li><a href="../staff/signout.php">ログアウト</a></li>
+                        </ul>
+                    <?php elseif ($loginCode===2): ?>
+                        <ul>
+                            <li><a href="../member/disp.php">会員情報確認</a></li>
+                            <li><a href="../member/edit.php">会員情報変更</a></li>
+                            <li><a href="../member/signout.php">ログアウト</a></li>
+                        </ul>
+                    <?php else: ?>
+                        <ul>
+                            <li><button type="button" onclick="location.href='../member/signin.php'">ログイン</button></li>
+                            <li><button type="button" onclick="location.href='../member/signup.php'">新規会員登録</button></li>
+                            <li><a href="../staff/signin.php">スタッフログイン</a></li>
+                        </ul>
+                    <?php endif; ?>
+                </div>
+            </div> <!-- /#memberMenu -->
+            <form action="../index.php" method="get" id="searchForm">
+                <div id="searchInputWrap">
+                    <input type="text" name="searchWord" id="searchInput">
+                    <button type="submit" id="searchButton"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+        </div> <!-- /#pageHeadGrid -->
     </header>
 
     <main id="pageMain">

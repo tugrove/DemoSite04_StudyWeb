@@ -24,11 +24,12 @@
     --background-color-pageFoot: rgb(130, 130, 130);
     --background-color-pageMain: rgb(255, 255, 255);
     --background-color-input: rgba(255, 255, 255, .8);
+    --background-color-button-search: rgb(255, 187, 0);
     /* line-height */
     --line-height-default: 1.5;
     /* size, length, width, or height */
     --width-contentsMaxWidth: 1080px;
-    --width-sidePadding: 1.5rem;
+    --width-sidePadding: 1rem;
     /* others */
     --opacity-hover: .6;
 }
@@ -84,8 +85,20 @@ input,
 textarea,
 select {
     padding: .3em .5em;
-    border: solid 1px var(--border-color-default);
+    border: solid 1px var(--border-color-primary);
     background: var(--background-color-input);
+}
+
+/* bold */
+.bold {
+    font-weight: bold;
+}
+
+/* centering */
+.centering {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* max width of contents */
@@ -117,11 +130,87 @@ select {
     background: var(--background-color-pageHead);
 }
 
+/* pageHead layout */
+#pageHead {
+    padding: .5em 0;
+}
+#pageHead #pageHeadGrid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+        "a b b b . . . ."
+        "c c c c c c c c";
+    gap: .5em 0;
+}
+#pageHead .siteLogo {
+    grid-area: b;
+}
+#pageHead #sideMenuButton {
+    grid-area: a;
+}
+#pageHead #memberMenu {
+    display: none;
+}
+#pageHead #searchForm {
+    grid-area: c;
+}
+
+/* sideMenuButton */
+#pageHead #sideMenuButton {
+    text-align: center;
+}
+
+/* memberMenu */
+#pageHead #memberMenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--background-color-pageHead);
+}
+#pageHead #memberMenu #memberMenuButton {
+    padding: .5em 1em;
+    border: solid 1px var(--border-color-primary);
+    border-radius: 5px;
+}
+#pageHead #memberMenu:not(.open) .accordionMenu {
+    display: none;
+}
+#pageHead #memberMenu.open .accordionMenu {
+    display: block;
+}
+
+/* search form */
+#pageHead #searchForm #searchInputWrap {
+    display: flex;
+    width: calc(100% - 2 * .5em);
+    max-height: 2em;
+    margin: 0 .5em;
+    border-radius: 5px;
+    background: var(--background-color-input);
+}
+#pageHead #searchForm #searchInputWrap > * {
+    height: 100%;
+    padding: .2em .5em;
+}
+#pageHead #searchForm #searchInput {
+    width: 100%;
+    border: none;
+    background: none;
+}
+#pageHead #searchForm #searchButton {
+    text-align: center;
+    border-radius: 5px;
+    background: var(--background-color-button-search);
+}
+
 /* #pageFoot */
 /* ============================================ */
 
 /* pageFoot itself */
 #pageFoot {
+    padding: 1em 0;
     background: var(--background-color-pageFoot);
 }
 
