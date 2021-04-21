@@ -46,13 +46,14 @@ if (!isset($_SESSION['loginCode']) || !isset($_SESSION['loginName']) || $_SESSIO
 
     <!-- CSS -->
     <link rel="stylesheet" href="../css/destyle.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
 <div id="page">
 
-    <header id="pageHead" style="background-color:grey;">
+    <header id="pageHead">
         <a href="../index.php"><img src="../image/common/siteLogo.png" alt="Shop! Lab." title="Shop! Lab. HOME"></a>
         <form action="../index.php" method="get">
             <input type="text" name="serchWord" id="serchWord">
@@ -85,7 +86,8 @@ if (!isset($_SESSION['loginCode']) || !isset($_SESSION['loginName']) || $_SESSIO
         </div>
     </header>
 
-    <main id="pageBody">
+    <main id="pageMain">
+        h
     </main>
 
     <footer id="pageFoot">
