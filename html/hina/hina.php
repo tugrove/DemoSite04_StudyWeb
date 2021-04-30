@@ -65,27 +65,25 @@ if (!isset($_SESSION['loginCode']) || !isset($_SESSION['loginName']) || $_SESSIO
                     <i class="fas fa-caret-down"></i>
                 </button>
                 <div class="accordionMenu">
-                    <?php if ($loginCode===1): ?>
+                    <nav>
                         <ul>
-                            <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
-                            <li><a href="../product/product_list.php">商品管理</a></li>
-                            <li><a href="../order/download.php">注文情報ダウンロード</a></li>
-                            <li><a href="../staff/signout.php">ログアウト</a></li>
+                            <?php if ($loginCode===1): ?>
+                                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                                <li><a href="../product/product_list.php">商品管理</a></li>
+                                <li><a href="../order/download.php">注文情報ダウンロード</a></li>
+                                <li><a href="../staff/signout.php">ログアウト</a></li>
+                            <?php elseif ($loginCode===2): ?>
+                                <li><a href="../member/disp.php">会員情報確認</a></li>
+                                <li><a href="../member/edit.php">会員情報変更</a></li>
+                                <li><a href="../member/signout.php">ログアウト</a></li>
+                            <?php else: ?>
+                                <li><button type="button" onclick="location.href='../member/signin.php'">ログイン</button></li>
+                                <li><button type="button" onclick="location.href='../member/signup.php'">新規会員登録</button></li>
+                                <li><a href="../staff/signin.php">スタッフログイン</a></li>
+                            <?php endif; ?>
                         </ul>
-                    <?php elseif ($loginCode===2): ?>
-                        <ul>
-                            <li><a href="../member/disp.php">会員情報確認</a></li>
-                            <li><a href="../member/edit.php">会員情報変更</a></li>
-                            <li><a href="../member/signout.php">ログアウト</a></li>
-                        </ul>
-                    <?php else: ?>
-                        <ul>
-                            <li><button type="button" onclick="location.href='../member/signin.php'">ログイン</button></li>
-                            <li><button type="button" onclick="location.href='../member/signup.php'">新規会員登録</button></li>
-                            <li><a href="../staff/signin.php">スタッフログイン</a></li>
-                        </ul>
-                    <?php endif; ?>
-                </div>
+                    </nav>
+                </div> <!-- /.accordionMenu -->
             </div> <!-- /#memberMenu -->
             <form action="../index.php" method="get" id="searchForm">
                 <div id="searchInputWrap">
@@ -95,6 +93,25 @@ if (!isset($_SESSION['loginCode']) || !isset($_SESSION['loginName']) || $_SESSIO
             </form>
         </div> <!-- /#pageHeadGrid -->
     </header>
+
+    <div id="sideMenu">
+        <nav>
+            <ul>
+                <?php if ($loginCode===1): ?>
+                    <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                    <li><a href="../product/product_list.php">商品管理</a></li>
+                    <li><a href="../order/download.php">注文情報ダウンロード</a></li>
+                    <li><a href="../staff/signout.php">ログアウト</a></li>
+                <?php elseif ($loginCode===2): ?>
+                    <li><a href="../member/disp.php">会員情報確認</a></li>
+                    <li><a href="../member/edit.php">会員情報変更</a></li>
+                    <li><a href="../member/signout.php">ログアウト</a></li>
+                <?php else: ?>
+                    <li><a href="../member/signin.php">ログイン</a></li>
+                <?php endif; ?>
+            </ul>
+        </nav>
+    </div>
 
     <main id="pageMain">
         h
